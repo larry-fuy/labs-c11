@@ -1,0 +1,9 @@
+project {
+  exename = threads
+  Source_Files {
+    buildflags = -std=c++11
+    doit.cpp
+    main.cpp
+  }
+}
+

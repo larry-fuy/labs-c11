@@ -1,0 +1,9 @@
+project {
+  exename = MyString
+  Source_Files {
+    buildflags = -std=c++11
+    MyString.cpp
+    Main.cpp
+  }
+}
+

@@ -1,0 +1,10 @@
+project {
+  exename = main
+  Source_Files {
+    buildflags = -std=c++11
+    parent.cpp
+    child.cpp
+    main.cpp
+  }
+}
+
