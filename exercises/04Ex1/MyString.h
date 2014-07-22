@@ -15,12 +15,17 @@ public:
   MyString(const MyString& copy);   
                   // copy constructor
 
+  MyString(MyString&& copy);
+  // move constructor
+
   ~MyString();            
                   // destructor
   
   MyString& operator=(const MyString& right);
                   // assignment operator
                   
+  MyString& operator=(MyString&& right);
+
   MyString operator+(const MyString& right);
                   // concatenation operator
   

@@ -15,10 +15,21 @@ MyString::MyString(const char* s)
 
 MyString::MyString(const MyString& copy)
 {
+   cout << "copy constructor " << endl;
 	length_ = copy.length_;
 	sPtr_ = new char[length_ + 1];
 	strcpy(sPtr_, copy.sPtr_);
 }
+
+MyString::MyString(MyString&& copy)
+{
+   cout << "move constructor" << endl;
+	length_ = copy.length_;
+        sPtr_ = copy.sPtr_;
+        copy.length_ = 0;
+        copy.sPtr_ = nullptr;
+}
+
 
 MyString::~MyString()
 {
@@ -28,11 +39,27 @@ MyString::~MyString()
 MyString&
 MyString::operator=(const MyString& right)
 {
+   cout << "assignment " << endl;
         if (&right != this) {
                 delete [] sPtr_;
                 length_ = right.length_;
                 sPtr_ = new char[length_ + 1];
                 strcpy(sPtr_, right.sPtr_);
+        }
+
+        return *this;
+}
+
+MyString&
+MyString::operator=(MyString&& right)
+{
+   cout << "move assignment" << endl;
+        if (&right != this) {
+                delete [] sPtr_;
+                length_ = right.length_;
+                sPtr_ = right.sPtr_;
+                right.length_ = 0;
+                right.sPtr_ = nullptr;
         }
 
         return *this;
