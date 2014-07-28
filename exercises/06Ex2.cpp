@@ -2,6 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
+
 using namespace std;
 
 int main()
@@ -27,7 +29,7 @@ vector<pair<string, int>> states = {
   for ( int i=0; i<states.size(); i++)
     cout << states[i].first << " in " << states[i].second << endl;
 
-  //sort(states.begin(), states.end(), put lambda here );
+  sort(states.begin(), states.end(), [](pair<string, int> s1, pair<string, int> s2) { return s1.second < s2.second;});
 
   cout << "\nSorted by year" << endl;
   for ( int i=0; i<states.size(); i++)
